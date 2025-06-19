@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Términos y Condiciones";
+}
+
+@await Html.PartialAsync("_Menu")
+
+<style>
+    .contenedor {
+        max-width: 700px;
+        margin: 100px auto;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        line-height: 1.6;
+    }
+</style>
+
+<div class="contenedor">
+    <h2 style="text-align:center;">Términos y Condiciones</h2>
+
+    <p>
+        Al utilizar GestorPro, aceptas que la información registrada será almacenada para fines de control de asistencia, horarios y pagos. 
+        Nos comprometemos a manejar tus datos de forma responsable y segura.
+    </p>
+
+    <p>
+        No está permitido compartir credenciales de acceso. Toda actividad queda registrada con tu identificador de empleado.
+    </p>
+
+    <p>
+        El uso de este sistema implica la aceptación de sus funcionalidades y políticas internas establecidas por la empresa.
+    </p>
+
+    <div style="text-align:center;">
+        <a class="btn btn-primary" href="/Home/Index">Volver al Inicio</a>
+    </div>
+</div>

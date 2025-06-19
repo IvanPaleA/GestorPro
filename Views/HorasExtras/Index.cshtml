@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Horas Extras";
+    var horasExtras = ViewBag.HorasExtras as List<GestorPro.Models.HorasExtra>;
+    string semana = ViewBag.Semana ?? "";
+}
+
+<h2>Horas Extras - @semana</h2>
+
+<form method="get" asp-action="Index" class="mb-4">
+    <label>Seleccionar semana:</label>
+    <select name="semana" onchange="this.form.submit()" class="form-select w-auto d-inline mx-2">
+        <option value="1er Sem" selected="@("1er Sem" == semana)">1ra Semana</option>
+        <option value="2da Sem" selected="@("2da Sem" == semana)">2da Semana</option>
+        <option value="3er Sem" selected="@("3er Sem" == semana)">3ra Semana</option>
+        <option value="4ta Sem" selected="@("4ta Sem" == semana)">4ta Semana</option>
+    </select>
+</form>
+
+@if (horasExtras != null && horasExtras.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Horas</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in horasExtras)
+        {
+            <tr>
+                <td>@item.Fecha.ToString("dd/MM/yyyy")</td>
+                <td>@item.CantidadHoras</td>
+                <td>@item.Monto.ToString("C")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron horas extra para esta semana.</p>
+}
+
+<div class="text-center mt-4"></div>
+<a class="btn btn-secondary" href="/Home/Index">Volver a Página Principal</a>
+</div>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Página Principal";
+}
+
+@{
+    var hora = DateTime.Now.Hour;
+    var saludo = hora < 12 ? "Buenos días" : (hora < 18 ? "Buenas tardes" : "Buenas noches");
+    ViewBag.NombreEmpleado = "Empleado 01";
+    ViewBag.UltimaJornada = "08:15 AM";
+}
+
+
+@await Html.PartialAsync("_Menu")
+
+<div style="text-align: center; margin-top: 100px;">
+    <h2>@saludo, @ViewBag.NombreEmpleado 👋</h2>
+    <p>Hoy es @DateTime.Now.ToString("dddd, dd MMMM yyyy")</p>
+
+    <a class="btn btn-success btn-lg shadow"
+       href="/Home/IniciarJornada"
+       style="padding: 24px 70px; font-size: 32px; border-radius: 16px; margin-top: 30px;">
+        Iniciar Jornada
+    </a>
+    
+
+    <!--Tarjetas-->
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap;">
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; width: 200px;">
+            <strong>Asistencia Semanal</strong><br />
+            ------
+        </div>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; width: 200px;">
+            <strong>Horas Extra Mes</strong><br />
+            ------
+        </div>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; width: 200px;">
+            <strong>Último Pago</strong><br />
+            ------
+        </div>
+    </div>
+</div>

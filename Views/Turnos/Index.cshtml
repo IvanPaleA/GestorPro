@@ -1,0 +1,56 @@
+@using GestorPro.Models
+@model List<Turno>
+
+@{
+    ViewData["Title"] = "Turnos";
+}
+
+@await Html.PartialAsync("_Menu")
+
+<style>
+    .contenedor {
+        max-width: 600px;
+        margin: 100px auto 40px auto;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .form-control {
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: 1px solid #ced4da;
+    }
+
+    .btn-success {
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="contenedor">
+    <h2>Selecciona tu turno</h2>
+
+    <form method="post" asp-action="CambiarTurno">
+        <select name="turnoId" class="form-control mb-3" required>
+            <option value="">-- Selecciona un turno --</option>
+            @foreach (var t in Model)
+            {
+                <option value="@t.Id">@t.Nombre (@t.Horario)</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-success">Guardar Turno</button>
+    </form>
+
+    <a class="btn btn-primary mt-4" href="/Home/Index">Volver a Página Principal</a>
+</div>

@@ -1,0 +1,61 @@
+@model List<GestorPro.Models.AsistenciaExtendida>
+
+@{
+    ViewData["Title"] = "Asistencia";
+    var semanaSeleccionada = ViewBag.SemanaSeleccionada as string ?? "1er Sem";
+}
+
+
+<h2 class="text-center my-4">Asistencia Semanal</h2>
+
+<div class="text-center mb-4">
+    <form method="get" asp-action="Index">
+        <label for="semana">Selecciona la semana:</label>
+        <select name="semana" id="semana" onchange="this.form.submit()">
+            <option value="1er Sem" selected="@(semanaSeleccionada == "1er Sem")">1er Sem</option>
+            <option value="2da Sem" selected="@(semanaSeleccionada == "2da Sem")">2da Sem</option>
+            <option value="3er Sem" selected="@(semanaSeleccionada == "3er Sem")">3er Sem</option>
+            <option value="4ta Sem" selected="@(semanaSeleccionada == "4ta Sem")">4ta Sem</option>
+        </select>
+    </form>
+</div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Fecha</th>
+                <th>Hora de Entrada</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asistencia in Model)
+            {
+                <tr>
+                    <td>@asistencia.Dia</td>
+                    <td>@asistencia.Fecha.ToString("yyyy-MM-dd")</td>
+                    <td>@(asistencia.HoraEntrada.HasValue ? asistencia.HoraEntrada.Value.ToString(@"hh\:mm") : "-")</td>
+                    <td>
+                        @if (asistencia.Estado == "puntual")
+                        {
+                            <span class="badge bg-success">Puntual</span>
+                        }
+                        else if (asistencia.Estado == "tarde")
+                        {
+                            <span class="badge bg-warning text-dark">Tarde</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Falta</span>
+                        }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div class="text-center mt-4"></div>
+    <a class="btn btn-secondary" href="/Home/Index">Volver a Página Principal</a>
+    </div>

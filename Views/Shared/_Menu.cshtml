@@ -1,0 +1,121 @@
+<style>
+    #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #343a40;
+        padding-top: 20px;
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+        z-index: 1000;
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+    }
+
+    #sidebar a {
+        padding: 20px 20px;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
+    #sidebar a:hover {
+        background-color: #495057;
+    }
+
+    #hamburger {
+        position: fixed;
+        top: 60px;
+        left: 20px;
+        font-size: 40px;
+        background: none;
+        border: none;
+        color: #343a40;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /*Emoji*/
+    #user-profile {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        font-size: 40px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /*Menú*/
+    #user-menu {
+        display: none;
+        position: fixed;
+        top: 50px;
+        right: 20px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1002;
+    }
+
+    #user-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    #user-menu a:hover {
+        background-color: #f0f0f0;
+    }
+
+</style>
+
+<!--hamburguesa-->
+<button id="hamburger" onclick="toggleMenu()">☰</button>
+
+<!--Menú de hambuerguesa-->
+<div id="sidebar">
+    <a href="/Home/Index">Inicio</a>
+    <a href="/Asistencia/Index">Asistencia</a>
+    <a href="/HorasExtras/Index">Horas Extras</a>
+    <a href="/Turnos/Index">Turnos</a>
+    <a href="/Registro/Index">Registro</a>
+    <a href="/FAQ/Index">¿Preguntas?</a>
+    <a href="/Auth/Logout">Cerrar Sesión</a>
+</div>
+
+<!--emoji-->
+<div id="user-profile" onclick="toggleUserMenu()">👨🏻‍💼</div>
+
+<!--menu cerrar sesión-->
+<div id="user-menu">
+    <a href="/Auth/Logout">Cerrar Sesión</a>
+</div>
+
+
+<script>
+    function toggleMenu() {
+        document.getElementById("sidebar").classList.toggle("active");
+    }
+
+        function toggleUserMenu() {
+        const menu = document.getElementById("user-menu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    //ocultar el menu
+    window.addEventListener('click', function(e) {
+        const userMenu = document.getElementById("user-menu");
+        const userIcon = document.getElementById("user-profile");
+        if (!userMenu.contains(e.target) && !userIcon.contains(e.target)) {
+            userMenu.style.display = "none";
+        }
+    });
+
+</script>
+

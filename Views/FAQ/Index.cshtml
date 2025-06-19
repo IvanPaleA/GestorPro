@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Preguntas Frecuentes";
+}
+
+@await Html.PartialAsync("_Menu")
+
+<style>
+    .contenedor {
+        max-width: 700px;
+        margin: 100px auto;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item {
+        margin-bottom: 20px;
+    }
+
+    .faq-item h4 {
+        margin-bottom: 5px;
+        color: #007bff;
+    }
+</style>
+
+<div class="contenedor">
+    <h2 style="text-align:center;">Preguntas Frecuentes</h2>
+
+    <div class="faq-item">
+        <h4>¿Cómo inicio mi jornada?</h4>
+        <p>Desde la pantalla principal, haz clic en el botón grande que dice "Iniciar Jornada".</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>¿Cómo veo mis horas extras?</h4>
+        <p>Abre el menú ☰ y selecciona “Horas Extras”. Podrás verlas por semana.</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>¿Dónde consulto mi pago quincenal?</h4>
+        <p>Ve a la sección “Registro” en el menú. Allí verás los pagos detallados por quincena.</p>
+    </div>
+
+    <div style="text-align:center;">
+        <a class="btn btn-primary" href="/Home/Index">Volver al Inicio</a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Inicio de Jornada";
+}
+
+@await Html.PartialAsync("_Menu")
+
+<div style="text-align: center; margin-top: 50px;">
+    <h2>¡Jornada Iniciada!</h2>
+    <p>Hora de entrada registrada: <strong>@ViewBag.HoraInicio</strong></p>
+
+    <a class="btn btn-primary mt-3" href="/Home/Index">Volver a la Página Principal</a>
+    <a class="btn btn-outline-danger mt-3" href="/Auth/Logout">Cerrar sesión</a>
+</div>

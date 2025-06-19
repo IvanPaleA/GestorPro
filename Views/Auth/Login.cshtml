@@ -1,0 +1,104 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>GestorPro - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .btn-ingresar {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-ingresar:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .error-msg {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-title">GestorPro</div>
+        <form asp-controller="Auth" asp-action="Login" method="post">
+            <input class="form-control" type="text" name="idEmpleado" placeholder="ID Empleado" required />
+            <input class="form-control" type="password" name="contraseña" placeholder="Contraseña" required />
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+        </form>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+        {
+            <div class="error-msg">@ViewBag.Error</div>
+        }
+
+        <div class="footer-links">
+            <a href="/FAQ/Index">¿?</a> |
+            <a href="/Terminos/Index">Términos & Condiciones</a>
+        </div>
+    </div>
+</body>
+</html>
