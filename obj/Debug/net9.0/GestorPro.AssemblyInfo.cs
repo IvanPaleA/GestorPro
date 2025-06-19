@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestorPro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+569a53470899ce0bd717cbee3bce603bef52c045")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestorPro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestorPro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

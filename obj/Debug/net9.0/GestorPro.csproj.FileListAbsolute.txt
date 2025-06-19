@@ -165,3 +165,4 @@ C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\refint\GestorPro.dll
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.pdb
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.genruntimeconfig.cache
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\ref\GestorPro.dll
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.sourcelink.json
