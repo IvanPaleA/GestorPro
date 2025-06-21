@@ -1,0 +1,45 @@
+@model List<GestorPro.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<h2>Panel de Administración</h2>
+
+<a class="btn btn-primary mb-3" href="/PanelAdmin/Crear">Crear Nuevo Usuario</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID de Empleado</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>@empleado.IdEmpleado</td>
+                <td>@empleado.Rol</td>
+                @* <td>
+                    <a class="btn btn-warning btn-sm" href="/PanelAdmin/Editar/@empleado.IdEmpleado">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/PanelAdmin/Eliminar/@empleado.IdEmpleado">Eliminar</a>
+                </td> *@
+                <td>
+                    <a asp-action="Editar" asp-route-id="@empleado.IdEmpleado" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@empleado.IdEmpleado" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Pagos" asp-route-idEmpleado="@empleado.IdEmpleado" class="btn btn-warning btn-sm">Gestionar Pago</a>
+                    <a asp-action="HorasExtras" asp-route-idEmpleado="@empleado.IdEmpleado" class="btn btn-info btn-sm">Horas Extra</a>
+                    <a href="/PanelAdmin/SolicitudesTurno" class="btn btn-info">Solicitudes de Turno</a>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-4">
+    Volver a Página Principal
+</a>
+<a href="/PanelAdmin/VerTurnos" class="btn btn-info mb-3">Ver Turnos y Empleados</a>

@@ -12,5 +12,12 @@ namespace GestorPro.Data
         public DbSet<HorasExtra> HorasExtras { get; set; }
         public DbSet<RegistroPago> RegistroPagos { get; set; }
         public DbSet<Turno> Turnos { get; set; }
+        public DbSet<Jornada> Jornadas { get; set; }
+
+        public DbSet<RegistroPago> RegistrosPago { get; set; }
+
+        public DbSet<SolicitudCambioTurno> SolicitudesCambioTurno { get; set; }
+
+
     }
 }

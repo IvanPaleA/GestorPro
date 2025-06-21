@@ -31,7 +31,7 @@ namespace GestorPro.Controllers
             {
                 ["1er Sem"] = (new DateTime(2025, 6, 2), new DateTime(2025, 6, 6)),
                 ["2da Sem"] = (new DateTime(2025, 6, 9), new DateTime(2025, 6, 13)),
-                ["3er Sem"] = (new DateTime(2025, 6, 16), new DateTime(2025, 6, 20)),
+                ["3er Sem"] = (new DateTime(2025, 6, 16), new DateTime(2025, 6, 21)),
                 ["4ta Sem"] = (new DateTime(2025, 6, 23), new DateTime(2025, 6, 27))
             };
 

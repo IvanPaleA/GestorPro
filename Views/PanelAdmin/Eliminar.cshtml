@@ -1,0 +1,17 @@
+@model GestorPro.Models.Empleado
+@{
+    ViewData["Title"] = "Eliminar Empleado";
+}
+
+<h2 class="mt-4 text-danger">¿Estás seguro de eliminar este empleado?</h2>
+
+<div class="border p-3 mt-3 bg-light">
+    <p><strong>ID:</strong> @Model.IdEmpleado</p>
+    <p><strong>Rol:</strong> @Model.Rol</p>
+</div>
+
+<form asp-action="EliminarConfirmado" method="post">
+    <input type="hidden" name="id" value="@Model.IdEmpleado" />
+    <button type="submit" class="btn btn-danger mt-3">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary mt-3 ms-2">Cancelar</a>
+</form>

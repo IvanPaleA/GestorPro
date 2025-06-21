@@ -1,0 +1,36 @@
+@model List<GestorPro.Models.SolicitudCambioTurno>
+
+<h2>Solicitudes de Cambio de Turno</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Empleado</th>
+            <th>Turno Solicitado</th>
+            <th>Horario</th>
+            <th>Fecha de Solicitud</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var solicitud in Model)
+        {
+            <tr>
+                <td>@solicitud.Empleado.IdEmpleado</td>
+                <td>@solicitud.TurnoSolicitado.Nombre</td>
+                <td>@solicitud.TurnoSolicitado.Horario</td>
+                <td>@solicitud.FechaSolicitud.ToShortDateString()</td>
+                <td>
+                    <form asp-action="AprobarSolicitud" method="post">
+                        <input type="hidden" name="id" value="@solicitud.Id" />
+                        <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="/PanelAdmin/Index" class="btn btn-secondary">Volver al Panel</a>
+

@@ -1,3 +1,12 @@
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.csproj.AssemblyReference.cache
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.AssemblyInfoInputs.cache
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.AssemblyInfo.cs
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.csproj.CoreCompileInputs.cache
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.RazorAssemblyInfo.cache
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.RazorAssemblyInfo.cs
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.sourcelink.json
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\appsettings.json
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\GestorPro.staticwebassets.runtime.json
@@ -80,14 +89,6 @@ C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.r
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\wwwiv\GestorPro\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.csproj.AssemblyReference.cache
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.AssemblyInfoInputs.cache
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.AssemblyInfo.cs
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.csproj.CoreCompileInputs.cache
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.RazorAssemblyInfo.cache
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.RazorAssemblyInfo.cs
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\scopedcss\bundle\GestorPro.styles.css
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\scopedcss\projectbundle\GestorPro.bundle.scp.css
@@ -153,8 +154,8 @@ C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\tbfw8c201v-2z0ns9nrw6.gz
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\732bllftj2-muycvpuwrr.gz
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\8q6e3eymtz-87fc7y1x7t.gz
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\bv2ayyjed6-mlv21k5csn.gz
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\xexdf6i3e8-q8plv8zq7h.gz
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\q679xcj0u9-q8plv8zq7h.gz
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\xexdf6i3e8-14vqw5ofnx.gz
+C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\compressed\q679xcj0u9-14vqw5ofnx.gz
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\staticwebassets.development.json
@@ -165,4 +166,3 @@ C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\refint\GestorPro.dll
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.pdb
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.genruntimeconfig.cache
 C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\ref\GestorPro.dll
-C:\Users\wwwiv\GestorPro\obj\Debug\net9.0\GestorPro.sourcelink.json

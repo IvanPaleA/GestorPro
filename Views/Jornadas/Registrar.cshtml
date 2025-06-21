@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Registrar Jornada";
+}
+
+<h2>Registrar Jornada</h2>
+
+@* <form asp-action="Registrar" method="post">
+    <p>¿Estás seguro de que deseas iniciar tu jornada?</p>
+    <button type="submit" class="btn btn-primary">Confirmar Inicio</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form> *@
+
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger mt-3">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

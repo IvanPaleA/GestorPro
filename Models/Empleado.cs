@@ -16,5 +16,11 @@ namespace GestorPro.Models
 
         [ForeignKey("TurnoId")]
         public Turno? Turno { get; set; }
+
+        public ICollection<Jornada> Jornadas { get; set; } = new List<Jornada>();
+
+        public string Rol { get; set; } = "Empleado"; // Valor por defecto
+
+
     }
 }

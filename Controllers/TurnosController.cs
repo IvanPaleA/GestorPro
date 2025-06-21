@@ -14,7 +14,7 @@ namespace GestorPro.Controllers
             _context = context;
         }
 
-        public IActionResult Index(bool mostrar = false)
+        /* public IActionResult Index(bool mostrar = false)
         {
             var idEmpleado = HttpContext.Session.GetString("IdEmpleado");
             if (idEmpleado == null)
@@ -25,23 +25,57 @@ namespace GestorPro.Controllers
             ViewBag.MostrarTurnos = mostrar;
 
             return View(turnos);
-        }
+        } */
 
-        [HttpPost]
-        public async Task<IActionResult> CambiarTurno(int turnoId)
+        public IActionResult Index(bool mostrar = false)
         {
             var idEmpleado = HttpContext.Session.GetString("IdEmpleado");
             if (idEmpleado == null)
                 return RedirectToAction("Login", "Auth");
 
-            var empleado = await _context.Empleados.FirstOrDefaultAsync(e => e.IdEmpleado == idEmpleado);
-            if (empleado != null)
+            var empleado = _context.Empleados
+                .Include(e => e.Turno)
+                .FirstOrDefault(e => e.IdEmpleado == idEmpleado);
+
+            if (empleado == null)
+                return NotFound();
+
+            var turnos = _context.Turnos.ToList();
+
+            ViewBag.MostrarTurnos = mostrar;
+            ViewBag.TurnoActual = empleado.Turno;
+
+            return View(turnos);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> SolicitarCambio(int turnoId)
+        {
+            var idEmpleado = HttpContext.Session.GetString("IdEmpleado");
+            if (idEmpleado == null) return RedirectToAction("Login", "Auth");
+
+            // Validar si ya existe una solicitud pendiente
+            var existe = await _context.SolicitudesCambioTurno
+                .AnyAsync(s => s.IdEmpleado == idEmpleado && !s.Aprobado);
+            if (existe)
             {
-                empleado.TurnoId = turnoId;
-                await _context.SaveChangesAsync();
+                TempData["mensajeError"] = "Ya tienes una solicitud de cambio pendiente.";
+                return RedirectToAction("Index");
             }
 
+            var solicitud = new SolicitudCambioTurno
+            {
+                IdEmpleado = idEmpleado,
+                TurnoSolicitadoId = turnoId
+            };
+
+            _context.SolicitudesCambioTurno.Add(solicitud);
+            await _context.SaveChangesAsync();
+
+            TempData["mensaje"] = "Solicitud enviada correctamente.";
             return RedirectToAction("Index");
         }
+
     }
 }

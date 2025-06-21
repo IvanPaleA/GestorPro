@@ -2,10 +2,46 @@
 @model List<Turno>
 
 @{
-    ViewData["Title"] = "Turnos";
+    ViewData["Title"] = "Mis Turnos";
+    var turnoActual = ViewBag.TurnoActual as GestorPro.Models.Turno;
+    var mostrarTurnos = (bool)(ViewBag.MostrarTurnos ?? false);
 }
 
-@await Html.PartialAsync("_Menu")
+<h2>Turno Actual</h2>
+
+@if (turnoActual != null)
+{
+    <div class="card p-3 shadow-sm mb-4">
+        <h5>@turnoActual.Nombre</h5>
+        <p><strong>Horario:</strong> @turnoActual.Horario</p>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">No tienes un turno asignado actualmente.</div>
+}
+
+@if (mostrarTurnos)
+{
+    <h3>Selecciona un nuevo turno</h3>
+    <form asp-action="SolicitarCambio" method="post">
+        <div class="mb-3">
+            <select name="turnoId" class="form-select">
+                @foreach (var turno in Model)
+                {
+                    <option value="@turno.Id">@turno.Nombre - @turno.Horario</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Solicitar cambio de turno</button>
+    </form>
+}
+else
+{
+    <a href="/Turnos/Index?mostrar=true" class="btn btn-secondary">Solicitar cambio de turno</a>
+    <a href="/Home/Index" class="btn btn-secondary">Cancelar</a>
+}
+
 
 <style>
     .contenedor {
@@ -38,7 +74,7 @@
     }
 </style>
 
-<div class="contenedor">
+@* <div class="contenedor">
     <h2>Selecciona tu turno</h2>
 
     <form method="post" asp-action="CambiarTurno">
@@ -54,3 +90,4 @@
 
     <a class="btn btn-primary mt-4" href="/Home/Index">Volver a Página Principal</a>
 </div>
+ *@

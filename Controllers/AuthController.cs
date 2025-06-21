@@ -32,7 +32,8 @@ namespace GestorPro.Controllers
             {
                 // Guardar en sesión
                 HttpContext.Session.SetString("IdEmpleado", empleado.IdEmpleado);
-                return RedirectToAction("Index", "Home"); // Cambia "Home" si tienes otro controlador principal
+                HttpContext.Session.SetString("Rol", empleado.Rol); // 👈 Guarda el rol en sesión
+                return RedirectToAction("Index", "Home"); 
             }
 
             ViewBag.Error = "ID o contraseña incorrectos.";

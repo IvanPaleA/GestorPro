@@ -48,6 +48,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXNFeHRyYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/wwwiv/GestorPro/Views/Jornadas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ybmFkYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/Jornadas/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9ybmFkYXNcUmVnaXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxFbGltaW5hci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/HorasExtras.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxIb3Jhc0V4dHJhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/Pagos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxQYWdvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/SolicitudesTurno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxTb2xpY2l0dWRlc1R1cm5vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wwwiv/GestorPro/Views/PanelAdmin/VerTurnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFuZWxBZG1pblxWZXJUdXJub3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/wwwiv/GestorPro/Views/Registro/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

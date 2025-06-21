@@ -1,0 +1,32 @@
+@model GestorPro.Models.HorasExtra
+@{
+    ViewData["Title"] = "Agregar Horas Extra";
+    var empleado = ViewBag.NombreEmpleado;
+}
+
+<h2>Registrar Horas Extra para @empleado</h2>
+
+<form asp-action="HorasExtras" method="post">
+    <input type="hidden" asp-for="IdEmpleado" />
+
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label">Fecha</label>
+        <input asp-for="Fecha" class="form-control" type="date" />
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CantidadHoras" class="form-label">Cantidad de Horas</label>
+        <input asp-for="CantidadHoras" class="form-control" type="number" min="1" />
+        <span asp-validation-for="CantidadHoras" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <a href="@Url.Action("Index", "PanelAdmin")" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

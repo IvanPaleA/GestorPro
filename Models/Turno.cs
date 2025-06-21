@@ -10,5 +10,8 @@ namespace GestorPro.Models
         public string Nombre { get; set; } = string.Empty;
 
         public string Horario { get; set; } = string.Empty;
+
+        public ICollection<Empleado> Empleados { get; set; } = new List<Empleado>();
+
     }
 }

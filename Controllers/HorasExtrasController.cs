@@ -17,14 +17,12 @@ namespace GestorPro.Controllers
 
         public IActionResult Index(string semana)
         {
-            //Obtener id
             var idEmpleado = HttpContext.Session.GetString("IdEmpleado");
             if (string.IsNullOrEmpty(idEmpleado))
             {
                 return RedirectToAction("Login", "Auth");
             }
 
-            //usar la primera semana por defecto
             if (string.IsNullOrEmpty(semana))
             {
                 semana = "1er Sem";

@@ -1,0 +1,53 @@
+@model List<GestorPro.Models.RegistroPago>
+@{
+    ViewData["Title"] = "Gestión de Pagos";
+    var empleado = ViewBag.Empleado as GestorPro.Models.Empleado;
+}
+
+<h2>Pagos del Empleado @empleado?.IdEmpleado</h2>
+<a href="/PanelAdmin/Index" class="btn btn-secondary mb-3">Volver al panel</a>
+
+<form asp-action="AgregarPago" method="post">
+    <input type="hidden" name="idEmpleado" value="@empleado?.IdEmpleado" />
+    <button class="btn btn-primary mb-3">Agregar Registro de Pago</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Periodo</th>
+            <th>Pago Base</th>
+            <th>Pago Extra</th>
+            <th>Total</th>
+            <th>Guardar</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var pago in Model)
+    {
+        <tr>
+            <form asp-action="EditarPago" method="post" style="display: contents;">
+                <td>
+                    <input name="Periodo" value="@pago.Periodo" class="form-control" />
+                </td>
+                <td>
+                    <input name="PagoBase" value="@pago.PagoBase" class="form-control" type="number" step="0.01" />
+                </td>
+                <td>
+                    <input name="PagoExtra" value="@pago.PagoExtra" class="form-control" type="number" step="0.01" />
+                </td>
+                <td>
+                    @(pago.PagoBase + pago.PagoExtra)
+                </td>
+                <td>
+                    <input type="hidden" name="Id" value="@pago.Id" />
+                    <input type="hidden" name="EmpleadoId" value="@pago.EmpleadoId" />
+                    <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+                </td>
+            </form>
+        </tr>
+    }
+    </tbody>
+
+
+</table>

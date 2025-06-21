@@ -34,10 +34,6 @@ namespace GestorPro.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("EmpleadoId")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
-
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -48,9 +44,13 @@ namespace GestorPro.Migrations
                     b.Property<TimeSpan?>("HoraEntrada")
                         .HasColumnType("time(6)");
 
+                    b.Property<string>("IdEmpleado")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("EmpleadoId");
+                    b.HasIndex("IdEmpleado");
 
                     b.ToTable("Asistencias");
                 });
@@ -64,7 +64,16 @@ namespace GestorPro.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Rol")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("TurnoId")
+                        .HasColumnType("int");
+
                     b.HasKey("IdEmpleado");
+
+                    b.HasIndex("TurnoId");
 
                     b.ToTable("Empleados");
                 });
@@ -97,6 +106,34 @@ namespace GestorPro.Migrations
                     b.ToTable("HorasExtras");
                 });
 
+            modelBuilder.Entity("GestorPro.Models.Jornada", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("HoraFin")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("HoraInicio")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("IdEmpleado")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpleado");
+
+                    b.ToTable("Jornadas");
+                });
+
             modelBuilder.Entity("GestorPro.Models.RegistroPago", b =>
                 {
                     b.Property<int>("Id")
@@ -126,7 +163,37 @@ namespace GestorPro.Migrations
 
                     b.HasIndex("EmpleadoId");
 
-                    b.ToTable("RegistroPagos");
+                    b.ToTable("RegistroPago");
+                });
+
+            modelBuilder.Entity("GestorPro.Models.SolicitudCambioTurno", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Aprobado")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("FechaSolicitud")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("IdEmpleado")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int>("TurnoSolicitadoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdEmpleado");
+
+                    b.HasIndex("TurnoSolicitadoId");
+
+                    b.ToTable("SolicitudesCambioTurno");
                 });
 
             modelBuilder.Entity("GestorPro.Models.Turno", b =>
@@ -154,17 +221,37 @@ namespace GestorPro.Migrations
                 {
                     b.HasOne("GestorPro.Models.Empleado", "Empleado")
                         .WithMany()
-                        .HasForeignKey("EmpleadoId")
+                        .HasForeignKey("IdEmpleado")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Empleado");
                 });
 
+            modelBuilder.Entity("GestorPro.Models.Empleado", b =>
+                {
+                    b.HasOne("GestorPro.Models.Turno", "Turno")
+                        .WithMany("Empleados")
+                        .HasForeignKey("TurnoId");
+
+                    b.Navigation("Turno");
+                });
+
             modelBuilder.Entity("GestorPro.Models.HorasExtra", b =>
                 {
                     b.HasOne("GestorPro.Models.Empleado", "Empleado")
                         .WithMany()
+                        .HasForeignKey("IdEmpleado")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empleado");
+                });
+
+            modelBuilder.Entity("GestorPro.Models.Jornada", b =>
+                {
+                    b.HasOne("GestorPro.Models.Empleado", "Empleado")
+                        .WithMany("Jornadas")
                         .HasForeignKey("IdEmpleado")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -181,6 +268,35 @@ namespace GestorPro.Migrations
                         .IsRequired();
 
                     b.Navigation("Empleado");
+                });
+
+            modelBuilder.Entity("GestorPro.Models.SolicitudCambioTurno", b =>
+                {
+                    b.HasOne("GestorPro.Models.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("IdEmpleado")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GestorPro.Models.Turno", "TurnoSolicitado")
+                        .WithMany()
+                        .HasForeignKey("TurnoSolicitadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empleado");
+
+                    b.Navigation("TurnoSolicitado");
+                });
+
+            modelBuilder.Entity("GestorPro.Models.Empleado", b =>
+                {
+                    b.Navigation("Jornadas");
+                });
+
+            modelBuilder.Entity("GestorPro.Models.Turno", b =>
+                {
+                    b.Navigation("Empleados");
                 });
 #pragma warning restore 612, 618
         }

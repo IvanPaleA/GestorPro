@@ -2,7 +2,15 @@
     ViewData["Title"] = "Términos y Condiciones";
 }
 
-@await Html.PartialAsync("_Menu")
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["mensaje"]</div>
+}
+@if (TempData["mensajeError"] != null)
+{
+    <div class="alert alert-danger">@TempData["mensajeError"]</div>
+}
+
 
 <style>
     .contenedor {

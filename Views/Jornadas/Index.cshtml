@@ -1,0 +1,55 @@
+@model List<GestorPro.Models.Jornada>
+
+@{
+    ViewData["Title"] = "Listado de Jornadas";
+}
+
+<h2>Listado de Jornadas</h2>
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["mensaje"]
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Empleado</th>
+            <th>Fecha</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de Fin</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jornada in Model)
+        {
+            <tr>
+                <td>@jornada.Id</td>
+                <td>@jornada.IdEmpleado</td>
+                <td>@jornada.Fecha.ToString("dd/MM/yyyy")</td>
+                <td>@(jornada.HoraInicio?.ToString("HH:mm") ?? "-")</td>
+                <td>@(jornada.HoraFin?.ToString("HH:mm") ?? "-")</td>
+                <td>
+                    @if (jornada.HoraFin == null)
+                    {
+                        <form asp-action="Finalizar" asp-route-id="@jornada.Id" method="post">
+                            <button type="submit" class="btn btn-sm btn-danger">Finalizar Jornada</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-success">Finalizada</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Registrar" class="btn btn-primary">Registrar Nueva Jornada</a>
+<a href="/Home/Index" class="btn btn-secondary mb-3">Volver al menú principal</a>
+

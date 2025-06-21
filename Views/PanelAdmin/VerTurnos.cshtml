@@ -1,0 +1,31 @@
+@model List<GestorPro.Models.Turno>
+@{
+    ViewData["Title"] = "Turnos y Empleados";
+}
+
+<h2>Turnos y Empleados Asignados</h2>
+
+@foreach (var turno in Model)
+{
+    <div class="card mb-3">
+        <div class="card-header bg-primary text-white">
+            <strong>@turno.Nombre</strong> - @turno.Horario
+        </div>
+        <div class="card-body">
+            @if (turno.Empleados.Any())
+            {
+                <ul>
+                    @foreach (var emp in turno.Empleados)
+                    {
+                        <li><strong>@emp.IdEmpleado</strong></li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No hay empleados asignados a este turno.</p>
+            }
+        </div>
+    </div>
+}
+<a asp-action="Index" class="btn btn-secondary mt-3 ms-2">Volver al Panel</a>
